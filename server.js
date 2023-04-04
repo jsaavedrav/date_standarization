@@ -8,17 +8,26 @@ app.post('/', function (request, response) {
   try {
     let data = {};
     const body = request.body;
-    console.log(body)
     const dates = body.dates;
-    console.log(dates);
-    console.log(JSON.stringify(dates));
-    data.dates = dates;
-    data.nowDate = new Date();
+    data.dates = new Array();
+    dates.forEach(datestr => {
+      console.log(stringToDate(datestr));
+      data.dates.push(stringToDate(datestr).toString());
+    });
+
+
+    
+    data.nowDate = (new Date()).toString();
     response.status(200).send({code: 200, resp: data});
   } catch (e) {
     response.status(500).send({code: 0, resp: e.message});
   }
 });
+
+function stringToDate(datestring) {
+  let date = new Date(datestring);
+  return date;
+}
 
 app.get('/', (req, res) => {
   res.status(200).send({code: 200, resp: 'OK'});
