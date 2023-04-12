@@ -15,7 +15,7 @@ app.post('/', function (request, response) {
     dates.forEach(datestr => {
       data.dates.push(stringToDate(datestr).toString());
     });
-    data.nowDate = (dateToTimezone(new Date(), TIMEZONE)).toUTCString();
+    data.nowDate = (dateToTimezone(new Date(), TIMEZONE)).toString();
     response.status(200).send({code: 200, resp: data});
   } catch (e) {
     response.status(500).send({code: 0, resp: e.message});
