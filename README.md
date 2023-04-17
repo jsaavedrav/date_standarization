@@ -3,6 +3,10 @@
 # Description
 This project is a basic example to how working with dates with came in string format and different timezone compared to server. This application read a date in string and standardizes the date to compare with the current date. It's coded in NodeJS with express and have a dockerfile to build a image so can test it in a container.
 
+# Dependences
+* [Express](https://github.com/expressjs/express)
+* [Moment Timezone](https://github.com/moment/moment-timezone)
+
 # Requirements
 To run this project in local machina:
 * Node (14v recomended)
